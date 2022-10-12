@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import Title from './title'
 import Square from './square'
 import Button from './button'
+import LikeButton from './like-button'
 
 class App extends Component {
   render () {
@@ -27,6 +28,7 @@ class App extends Component {
           <Square/>
         </div>
         <Button>Clique aqui</Button>
+        <LikeButton />
       </main>
     )
   }
