@@ -3,18 +3,31 @@
 import React, { Component } from 'react'
 import Title from './title'
 import Square from './square'
+import Button from './button'
 
 class App extends Component {
   render () {
     return (
-      <div className='container'>
-        <Title name='Will' lastname='Smith' />
-        <label htmlFor='input' data-label='Label'>Input</label>
-        <input type='text' id='input' aria-hidden={true} />
-        {['blue', 'red', 'green'].map((square, index) => (
-          <Square key={index} color={square} />
-        ))}
-      </div>
+      <main>
+        <div className='container'>
+          <Title name='Will' lastname='Smith' />
+          <label htmlFor='input' data-label='Label'>Input</label>
+          <input type='text' id='input' aria-hidden={true} />
+          {['blue', 'red', 'green'].map((square, index) => (
+            <Square key={index} color={square} />
+          ))}
+        </div>
+        <div 
+          className='container' 
+          style={{ marginTop: '20px' }}
+          onClick={(e) => {
+            alert('clicou')
+          }}
+        >
+          <Square/>
+        </div>
+        <Button>Clique aqui</Button>
+      </main>
     )
   }
 }
