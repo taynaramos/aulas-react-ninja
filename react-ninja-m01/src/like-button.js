@@ -5,7 +5,7 @@ import Button from './button'
 
 const LikeButton = () => {
   return (
-    <Button>Curtir</Button>
+    <Button handleClick={() => alert('curtiu')}>Curtir</Button>
   )
 }
 
