@@ -4,17 +4,30 @@ import React, { Component } from 'react'
 import Title from './title'
 import Square from './square'
 import Button from './button'
-import LikeButton from './like-button'
+import Timer from './timer'
 
 class App extends Component {
   constructor() {
+    console.log('constructor')
     super()
     this.state = {
-      color: 'green'
+      color: 'green',
+      showTimer: true
     }
   }
 
+  // executa no lado do frontend e do servidor
+  componentWillMount() {
+    console.log('componentWillMount')
+  }
+
+  // executa somente no lado do frontend
+  componentDidMount() {
+    console.log('componentDidMount')
+  }
+
   render () {
+    console.log('render')
     return (
       <main>
         <div className='container'>
@@ -36,6 +49,10 @@ class App extends Component {
               {color}
             </Button>
           ))}
+        </div>
+        <div style={{ marginTop: '20px' }}>
+          {this.state.showTimer && <Timer />}
+          <button onClick={() => this.setState({ showTimer: !this.state.showTimer })}>Show/hide timer</button>
         </div>
       </main>
     )
