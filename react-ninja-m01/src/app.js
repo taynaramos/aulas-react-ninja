@@ -7,27 +7,28 @@ import Button from './button'
 import Timer from './timer'
 
 class App extends Component {
-  constructor() {
-    console.log('constructor')
+  constructor () {
+    console.log('constructor app')
     super()
     this.state = {
       color: 'green',
-      showTimer: true
+      showTimer: true,
+      time: 0
     }
   }
 
   // executa no lado do frontend e do servidor
-  componentWillMount() {
-    console.log('componentWillMount')
+  componentWillMount () {
+    console.log('componentWillMount app')
   }
 
   // executa somente no lado do frontend
-  componentDidMount() {
-    console.log('componentDidMount')
+  componentDidMount () {
+    console.log('componentDidMount app')
   }
 
   render () {
-    console.log('render')
+    console.log('render app')
     return (
       <main>
         <div className='container'>
@@ -39,7 +40,7 @@ class App extends Component {
           ))}
         </div>
         <div style={{ marginTop: '20px' }}>
-          <Square color={this.state.color}/>
+          <Square color={this.state.color} />
 
           {['blue', 'red', 'green'].map((color) => (
             <Button 
@@ -51,8 +52,8 @@ class App extends Component {
           ))}
         </div>
         <div style={{ marginTop: '20px' }}>
-          {this.state.showTimer && <Timer />}
-          <button onClick={() => this.setState({ showTimer: !this.state.showTimer })}>Show/hide timer</button>
+          <Timer time={this.state.time} />
+          <button onClick={() => this.setState({ time: this.state.time + 10 })}>Change props</button>
         </div>
       </main>
     )
